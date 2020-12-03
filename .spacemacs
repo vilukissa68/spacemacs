@@ -32,7 +32,8 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(csv
+   '(javascript
+     csv
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -44,10 +45,15 @@ This function should only modify configuration layer settings."
      git
      helm
      python
+     ranger
+     shell
      ;; lsp
      ;; markdown
      multiple-cursors
+     latex
+     c-c++
      org
+     colors
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -232,7 +238,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-colorize-cursor-according-to-state t
 
    ;; Default font or prioritized list of fonts.
-   dotspacemacs-default-font '("Source Code Pro"
+   dotspacemacs-default-font '("Hack"
                                :size 10.0
                                :weight normal
                                :width normal)
@@ -515,6 +521,7 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  (setq-default dotspacemacs-configuration-layers '(pdf))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -533,7 +540,7 @@ This function is called at the very end of Spacemacs initialization."
    '("2dff5f0b44a9e6c8644b2159414af72261e38686072e063aa66ee98a2faecf0e" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default))
  '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
-   '(csv-mode yapfify ws-butler writeroom-mode winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package undo-tree treemacs-projectile treemacs-persp treemacs-magit treemacs-icons-dired treemacs-evil toc-org symon symbol-overlay string-inflection sphinx-doc spaceline-all-the-icons smeargle restart-emacs rainbow-delimiters pytest pyenv-mode py-isort popwin pippel pipenv pip-requirements pcre2el password-generator paradox overseer orgit org-superstar org-rich-yank org-projectile org-present org-pomodoro org-mime org-download org-cliplink org-brain open-junk-file nameless move-text magit-svn magit-section magit-gitflow macrostep lorem-ipsum live-py-mode link-hint indent-guide importmagic hybrid-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-org-rifle helm-org helm-mode-manager helm-make helm-ls-git helm-gitignore helm-git-grep helm-flx helm-descbinds helm-ag google-translate golden-ratio gnuplot gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link forge font-lock+ flyspell-correct-helm flycheck-pos-tip flycheck-package flycheck-elsa flx-ido fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu espresso-theme emr elisp-slime-nav ein editorconfig dumb-jump dracula-theme dotenv-mode diminish devdocs define-word cython-mode conda column-enforce-mode clean-aindent-mode centered-cursor-mode blacken auto-highlight-symbol auto-dictionary auto-compile anaconda-mode aggressive-indent ace-link ace-jump-helm-line)))
+   '(helm-rtags google-c-style flycheck-ycmd flycheck-rtags disaster cpp-auto-include company-ycmd ycmd request-deferred company-rtags rtags company-c-headers xterm-color vterm terminal-here shell-pop multi-term eshell-z eshell-prompt-extras esh-help rainbow-mode rainbow-identifiers color-identifiers-mode ranger selectric-mode company-reftex company-auctex auctex-latexmk auctex web-beautify tern prettier-js nodejs-repl livid-mode skewer-mode js2-refactor multiple-cursors js2-mode js-doc import-js grizzl impatient-mode simple-httpd helm-gtags ggtags dap-mode posframe lsp-treemacs bui lsp-mode dash-functional counsel-gtags counsel swiper ivy add-node-modules-path csv-mode yapfify ws-butler writeroom-mode winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package undo-tree treemacs-projectile treemacs-persp treemacs-magit treemacs-icons-dired treemacs-evil toc-org symon symbol-overlay string-inflection sphinx-doc spaceline-all-the-icons smeargle restart-emacs rainbow-delimiters pytest pyenv-mode py-isort popwin pippel pipenv pip-requirements pcre2el password-generator paradox overseer orgit org-superstar org-rich-yank org-projectile org-present org-pomodoro org-mime org-download org-cliplink org-brain open-junk-file nameless move-text magit-svn magit-section magit-gitflow macrostep lorem-ipsum live-py-mode link-hint indent-guide importmagic hybrid-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-org-rifle helm-org helm-mode-manager helm-make helm-ls-git helm-gitignore helm-git-grep helm-flx helm-descbinds helm-ag google-translate golden-ratio gnuplot gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link forge font-lock+ flyspell-correct-helm flycheck-pos-tip flycheck-package flycheck-elsa flx-ido fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu espresso-theme emr elisp-slime-nav ein editorconfig dumb-jump dracula-theme dotenv-mode diminish devdocs define-word cython-mode conda column-enforce-mode clean-aindent-mode centered-cursor-mode blacken auto-highlight-symbol auto-dictionary auto-compile anaconda-mode aggressive-indent ace-link ace-jump-helm-line)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
