@@ -25,8 +25,6 @@ This function should only modify configuration layer settings."
    ;; a layer lazily. (default t)
    dotspacemacs-ask-for-lazy-installation t
 
-   dotspacemacs-additional-packages '(gdscript-mode)
-
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
    dotspacemacs-configuration-layer-path '()
@@ -93,7 +91,8 @@ This function should only modify configuration layer settings."
      yasnippet-snippets
      prettier-js
      platformio-mode
-     darkroom)
+     darkroom
+     gdscript-mode)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -548,6 +547,7 @@ before packages are loaded."
   ;;(setq-default dotspacemacs-configuration-layers '(pdf))
 
   ;; Load additional packages
+  (require 'iso-transl)
   (use-package gdscript-mode
     :ensure t
     :bind ((
