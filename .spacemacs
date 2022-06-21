@@ -62,7 +62,10 @@ This function should only modify configuration layer settings."
      ;; markdown
      multiple-cursors
      latex
-     (c-c++ :variables c-c++-backend 'lsp-clangd)
+     (c-c++ :variables
+            c-c++-backend 'lsp-ccls
+            c-c++-adopt-subprojects t
+            c-c++-enable-clang-format-on-save t)
      (csharp)
      org
      colors
